@@ -1,10 +1,12 @@
 import numpy as np
 from prediction import predict_
 
+
 def cost_elem_(y, y_hat):
     m = y.shape[0]
     difs = y - y_hat.reshape(y.shape)
     return np.array(list(map(lambda x: (x ** 2) / (2 * m), difs)))
+
 
 def cost_(y, y_hat):
     j_theta = cost_elem_(y, y_hat).sum(axis=0)
@@ -24,7 +26,10 @@ if __name__ == "__main__":
     print(cost_(y1, y_hat1))
     # Output:
     print(3.0)
-    x2 = np.array([[0.2, 2., 20.], [0.4, 4., 40.], [0.6, 6., 60.], [0.8, 8., 80.]])
+    x2 = np.array([[0.2, 2., 20.],
+                   [0.4, 4., 40.],
+                   [0.6, 6., 60.],
+                   [0.8, 8., 80.]])
     theta2 = np.array([[0.05], [1.], [1.], [1.]])
     y_hat2 = predict_(x2, theta2)
     y2 = np.array([[19.], [42.], [67.], [93.]])

@@ -9,14 +9,17 @@ def mse_(y, y_hat):
     sigma = np.array(list(map(lambda x: x ** 2, dif)))
     return sigma.sum(axis=0) / m
 
+
 def rmse_(y, y_hat):
     return sqrt(mse_(y, y_hat))
+
 
 def mae_(y, y_hat):
     m = y.shape[0]
     dif = y_hat - y
     sigma = np.array(list(map(lambda x: abs(x), dif)))
     return sigma.sum(axis=0) / m
+
 
 def r2score_(y, y_hat):
     dif1 = y_hat - y
@@ -26,42 +29,27 @@ def r2score_(y, y_hat):
     sigma2 = np.array(list(map(lambda x: x ** 2, dif2)))
     return 1 - (sigma1.sum(axis=0) / sigma2.sum(axis=0))
 
+
 if __name__ == "__main__":
     x = np.array([0, 15, -9, 7, 12, 3, -21])
     y = np.array([2, 14, -13, 5, 12, 4, -19])
     # Mean squared error
-    ## your implementation
-    print(mse_(x,y))
-    ## Output:
-#    print(4.285714285714286)
-    ## sklearn implementation
-    print(mean_squared_error(x,y))
-    ## Output:
-#    print(4.285714285714286)
+    # your implementation
+    print(mse_(x, y))
+    # sklearn implementation
+    print(mean_squared_error(x, y))
     # Root mean squared error
-    ## your implementation
-    print(rmse_(x,y))
-    ## Output:
-#    print(2.0701966780270626)
-    ## sklearn implementation not available: take the square root of MSE
-    print(sqrt(mean_squared_error(x,y)))
-    ## Output:
-#    print(2.0701966780270626)
+    # your implementation
+    print(rmse_(x, y))
+    # sklearn implementation not available: take the square root of MSE
+    print(sqrt(mean_squared_error(x, y)))
     # Mean absolute error
-    ## your implementation
-    print(mae_(x,y))
-    # Output:
-#    1.7142857142857142
-    ## sklearn implementation
-    print(mean_absolute_error(x,y))
-    # Output:
-#    print(1.7142857142857142)
+    # your implementation
+    print(mae_(x, y))
+    # sklearn implementation
+    print(mean_absolute_error(x, y))
     # R2-score
-    ## your implementation
-    print(r2score_(x,y))
-    ## Output:
-#    print(0.9681721733858745)
-    ## sklearn implementation
-    print(r2_score(x,y))
-    ## Output:
-#    print(0.9681721733858745)
+    # your implementation
+    print(r2score_(x, y))
+    # sklearn implementation
+    print(r2_score(x, y))
